@@ -1,12 +1,12 @@
 import React from 'react';
-import /**/ from 'redux';
-import /**/ from 'react-redux';
-import /**/ from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import RepoList from './containers/RepoList';
 import ErrorBoundary from './components/ErrorBoundary';
 import reducers from './reducers';
 
-// @TODO - Setup redux with redux-thunk
+const store = createStore(reducers, applyMiddleware(thunk));
 
 const App = () => (
   <Provider store={store}>

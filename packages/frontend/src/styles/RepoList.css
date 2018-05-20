@@ -1,0 +1,42 @@
+.repo-list {
+  margin-left: 5em;
+  margin-bottom: 2em;
+}
+
+.repo {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.repo-name a {
+  color: #0665d6;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: inline-block;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+.repo-description {
+  font-size: 1.05em;
+  margin-bottom: 0.7em;
+}
+
+.repo-language-color {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.repo-language-name {
+  margin-left: 5px;
+  color: #585f5c;
+}
+
+.load-more-btn {
+  font-size: 1.3em;
+  margin-top: 0.5em;
+}

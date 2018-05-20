@@ -1,4 +1,5 @@
 import parseLinkHeaders from 'parse-link-header';
+import qs from 'qs';
 
 export const FETCH_START = '@fetch/start';
 export const FETCH_ERROR = '@fetch/error';
@@ -23,20 +24,40 @@ const fetchSuccess = ({ nextPage, data }) => ({
  * Fetches repositories asyncronously for the given username, see {@link https://developer.github.com/v3/repos/#list-user-repositories}
  * @param { string } username - username to fetch
  */
-export const fetchUserRepos = username => async (dispatch, getState) => {
+export const fetchUserRepos = (username, page = 1) => async (
+  dispatch,
+  getState,
+) => {
   dispatch(fetchStart());
-  // @TODO: I might want to use `fetch` for this...
-  // @TODO: I need a GitHub API key as for this to work in .env...
-  // https://developer.github.com/apps/building-oauth-apps/
-  // @TODO: We must handle pagination too...
-  // https://developer.github.com/v3/guides/traversing-with-pagination/
-  // parse-link-header package looks nice?
-  // @TODO we want to get the `nextPage` from state?
-
-  const { REACT_APP_GITHUB_API_KEY: token } = process.env;
+  const { REACT_APP_GITHUB_API_KEY } = process.env;
 
   try {
-    throw new Error('Not implemented (actions/RepoList/index.js)');
+    const params = {
+      page: page,
+      per_page: 5,
+    };
+
+    const url = `https://api.github.com/users/${username}/repos?${qs.stringify(
+      params,
+    )}`;
+
+    const options = {
+      headers: {
+        Authorization: REACT_APP_GITHUB_API_KEY,
+      },
+    };
+
+    const response = await fetch(url, options);
+    const data = await response.json();
+    const linkHeader = response.headers.get('link');
+    const link = parseLinkHeaders(linkHeader);
+
+    dispatch(
+      fetchSuccess({
+        nextPage: link && link.next && link.next.page ? link.next.page : null,
+        data: data,
+      }),
+    );
   } catch (error) {
     dispatch(fetchError(error.message));
   }

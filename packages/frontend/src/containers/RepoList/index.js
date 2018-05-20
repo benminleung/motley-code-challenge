@@ -10,10 +10,12 @@ class RepoListContainer extends Component {
     this.props.dispatch(fetchUserRepos(this.props.username));
   }
   fetchMore = () => {
-    this.props.dispatch(fetchUserRepos(this.props.username));
+    this.props.dispatch(
+      fetchUserRepos(this.props.username, this.props.nextPage),
+    );
   };
   render() {
-    const { loading, error, data, username, ...rest } = this.props;
+    const { loading, error, data, username, isLastPage, ...rest } = this.props;
 
     if (error) {
       return <div>{error}</div>;
@@ -21,15 +23,17 @@ class RepoListContainer extends Component {
 
     return [
       loading && <LoadingSpinner key="loading" />,
-      data.length > 0 && (
-        <RepoList
-          data={data}
-          username={username}
-          fetchMore={this.fetchMore}
-          {...rest}
-          key="RepoList"
-        />
-      ),
+      data &&
+        data.length > 0 && (
+          <RepoList
+            data={data}
+            username={username}
+            fetchMore={this.fetchMore}
+            isLastPage={isLastPage}
+            {...rest}
+            key="RepoList"
+          />
+        ),
     ];
   }
 }
@@ -54,6 +58,14 @@ RepoListContainer.defaultProps = {
   data: null,
 };
 
-const mapStateToProps = /* TODO: mapStateToProps should get the repo data from the store */
+const mapStateToProps = ({ RepoList }) => {
+  return {
+    loading: RepoList.loading,
+    error: RepoList.error,
+    data: RepoList.data,
+    nextPage: RepoList.nextPage,
+    isLastPage: RepoList.isLastPage,
+  };
+};
 
 export default connect(mapStateToProps)(RepoListContainer);

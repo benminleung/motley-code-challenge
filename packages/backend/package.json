@@ -1,7 +1,7 @@
 {
-  "name": "@motleyagency/code-challenge-backend",
+  "name": "@jukkhop/motley-code-challenge-backend",
   "version": "1.0.0",
-  "description": "https://motley.fi backend test",
+  "description": "Motley's backend code challenge",
   "main": "index.js",
   "bin": {
     "motley-generate-fake-test-data": "generate-fake-data.js"
@@ -14,16 +14,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motleyagency/code-challenge.git"
+    "url": "git+https://github.com/jukkhop/motley-code-challenge.git"
   },
-  "keywords": ["challenge", "interview", "react", "graphql", "rest", "test"],
-  "author": "Pete Nykänen <pete@motley.fi>",
+  "keywords": [
+    "challenge",
+    "interview",
+    "react",
+    "graphql",
+    "rest",
+    "test"
+  ],
+  "author": "Jukka Hopeavuori <jukka.hopea@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motleyagency/code-challenge/issues"
+    "url": "https://github.com/jukkhop/motley-code-challenge/issues"
   },
-  "homepage": "https://motley.fi",
-  "dependencies": {},
+  "homepage": "https://github.com/jukkhop",
+  "dependencies": {
+    "apollo-server-express": "^1.3.6",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^3.0.1"
+  },
   "lint-staged": {
     "*.{js,json,graphql,md,css,scss,less,ts}": [
       "prettier --single-quote --trailing-comma all --write",
@@ -40,6 +52,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "husky": "^0.14.3",
+    "jest": "^22.4.4",
+    "jest-cli": "^22.4.4",
     "lint-staged": "^7.1.0",
     "prettier": "^1.12.1"
   },

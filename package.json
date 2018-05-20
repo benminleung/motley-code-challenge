@@ -1,5 +1,5 @@
 {
-  "name": "@motleyagency/code-challenge",
+  "name": "@jukkhop/motley-code-challenge",
   "version": "1.0.0",
   "description": "Motley's code challenge",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motleyagency/code-challenge.git"
+    "url": "git+https://github.com/jukkhop/motley-code-challenge.git"
   },
   "keywords": [
     "interview",
@@ -17,12 +17,12 @@
     "rest",
     "test"
   ],
-  "author": "Pete Nykänen <pete@motley.fi>",
+  "author": "Jukka Hopeavuori <jukka.hopea@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motleyagency/code-challenge/issues"
+    "url": "https://github.com/jukkhop/motley-code-challenge/issues"
   },
-  "homepage": "https://motley.fi",
+  "homepage": "https://github.com/jukkhop",
   "dependencies": {
     "husky": "^0.14.3",
     "lerna": "^2.11.0"

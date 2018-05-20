@@ -1,18 +1,18 @@
 {
-  "name": "@motleyagency/code-challenge-frontend",
+  "name": "@jukkhop/motley-code-challenge-frontend",
   "description": "Motley's frontend code challenge",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motleyagency/code-challenge.git"
+    "url": "git+https://github.com/jukkhop/motley-code-challenge.git"
   },
   "keywords": ["interview", "react", "graphql", "rest", "test"],
-  "author": "Pete Nykänen <pete@motley.fi>",
+  "author": "Jukka Hopeavuori <jukka.hopea@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motleyagency/code-challenge/issues"
+    "url": "https://github.com/jukkhop/motley-code-challenge/issues"
   },
-  "homepage": "https://motley.fi",
+  "homepage": "https://github.com/jukkhop",
   "dependencies": {
     "babel-eslint": "^8.2.3",
     "enzyme": "^3.3.0",
@@ -20,9 +20,13 @@
     "fetch-mock": "^6.4.1",
     "parse-link-header": "^1.0.1",
     "prop-types": "^15.6.1",
+    "qs": "^6.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "redux-mock-store": "^1.5.1",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
